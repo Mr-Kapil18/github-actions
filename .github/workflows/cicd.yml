@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-
+# every job need separate runner, parallelism
   code:
     runs-on: ubuntu-latest
     steps:
@@ -14,18 +14,21 @@ jobs:
         run: echo "code clone form github"
 
   build:
+    needs: [code]
     runs-on: ubuntu-latest
     steps:
       - name: build docker container
         run: echo "docker container built"
 
   test:
+    needs: [build,code]
     runs-on: ubuntu-latest
     steps:
       - name: test the container
         run: echo "testing the container"
 
   deploy:
+    needs: [code,build,test]
     runs-on: ubuntu-latest
     steps:
       - name: deploying the app
