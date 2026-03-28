@@ -18,3 +18,10 @@ jobs:
         run: echo "hello Kapil"
       - name: say hello to user
         run: echo "hello $USER"
+  
+  # new job needs new runner
+  details:
+    runs-on: ubuntu-latest
+    steps:
+      - name: versions of docker, python, etc
+        run: docker --version && python --version
