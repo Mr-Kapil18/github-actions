@@ -12,7 +12,14 @@ permissions:
 jobs:
     deploy:
         runs-on: ubuntu-latest
+
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
+
+
 # get access to ur portfolio via pre built action
+# clones or check out the code where this workflow is written
         steps:
             - name: checkout code 
               uses: actions/checkout@v4
