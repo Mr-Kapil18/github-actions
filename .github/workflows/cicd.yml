@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       environment:
-        description: this is the environment where workflow runs
+        description: this is the environment value where workflow runs
         default: 'dev'
         required: true
         type: choice
@@ -38,6 +38,7 @@ jobs:
         run: echo "testing the container"
 
   deploy:
+    if: ${{ inputs.environment == 'dev' }}
     needs: [code,build,test]
     runs-on: ubuntu-latest
     steps:
