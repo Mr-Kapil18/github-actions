@@ -1,20 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First Web Page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kapil Pawar | DevOps Engineer</title>
+
+<style>
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* BACKGROUND */
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #0f172a, #1e293b, #020617);
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* ANIMATED BACKGROUND BLOBS */
+body::before, body::after {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: #38bdf8;
+  filter: blur(120px);
+  opacity: 0.3;
+  z-index: -1;
+}
+
+body::before {
+  top: -100px;
+  left: -100px;
+}
+
+body::after {
+  bottom: -100px;
+  right: -100px;
+}
+
+/* NAVBAR */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 8%;
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+nav h2 {
+  color: #38bdf8;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 25px;
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: #38bdf8;
+  left: 0;
+  bottom: -5px;
+  transition: 0.3s;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* GLASS CARD */
+.glass {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(15px);
+  border-radius: 15px;
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 30px;
+  transition: 0.4s;
+}
+
+.glass:hover {
+  transform: translateY(-10px) scale(1.02);
+  border: 1px solid rgba(56,189,248,0.5);
+  box-shadow: 0 0 30px rgba(56,189,248,0.3);
+}
+
+/* HERO */
+.hero {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 10%;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  margin-top: 15px;
+  max-width: 600px;
+  opacity: 0.8;
+}
+
+/* BUTTON */
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #38bdf8;
+}
+
+/* SECTION */
+section {
+  padding: 80px 10%;
+}
+
+h2 {
+  margin-bottom: 30px;
+  color: #38bdf8;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 25px;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 30px;
+  opacity: 0.6;
+}
+
+/* SCROLL */
+html {
+  scroll-behavior: smooth;
+}
+</style>
 </head>
+
 <body>
 
-    <h1>Welcome to My Website</h1>
-    <p>This is a simple index.html file.</p>
+<!-- NAV -->
+<nav>
+  <h2>Kapil</h2>
+  <div>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
 
-    <h2>About</h2>
-    <p>This page is used as the default landing page.</p>
+<!-- HERO -->
+<section class="hero">
+  <div class="glass">
+    <h1>DevOps Engineer</h1>
+    <p>
+      System Analyst transitioning into Cloud & DevOps.
+      Passionate about AWS, Terraform, Kubernetes, and automation.
+    </p>
+    <a href="#contact" class="btn">Let's Connect</a>
+  </div>
+</section>
 
+<!-- ABOUT -->
+<section id="about">
+  <div class="glass">
+    <h2>About Me</h2>
+    <p>
+      I work as a System Analyst with hands-on experience in Linux, SQL, 
+      production deployments, and troubleshooting. Currently focused on building 
+      scalable cloud infrastructure using Infrastructure as Code and CI/CD pipelines.
+    </p>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="grid">
+    <div class="glass">Linux & Shell Scripting</div>
+    <div class="glass">AWS (SAA Prep)</div>
+    <div class="glass">Terraform</div>
+    <div class="glass">Docker & Kubernetes</div>
+    <div class="glass">GitHub Actions CI/CD</div>
+    <div class="glass">SQL & Monitoring</div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="grid">
+
+    <div class="glass">
+      <h3>CI/CD Pipeline</h3>
+      <p>Automated build, test & deploy using GitHub Actions.</p>
+    </div>
+
+    <div class="glass">
+      <h3>Terraform AWS Infra</h3>
+      <p>Provisioned EC2, VPC, IAM using modular Terraform.</p>
+    </div>
+
+    <div class="glass">
+      <h3>Kubernetes Deployment</h3>
+      <p>Deployed scalable container apps with services.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="glass">
     <h2>Contact</h2>
     <p>Email: pkapil202@gmail.com</p>
+    <p>GitHub: github.com/Mr-Kapil18</p>
+  </div>
+</section>
+
+<footer>
+  © 2026 Kapil Pawar
+</footer>
 
 </body>
 </html>
